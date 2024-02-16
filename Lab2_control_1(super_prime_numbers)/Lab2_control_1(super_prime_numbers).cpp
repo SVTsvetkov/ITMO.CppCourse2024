@@ -6,8 +6,28 @@ using namespace std;
 
 int main()
 {
-    
+    system("chcp 1251");
+    int x, k = 0;
+
+    cout << "Is entered number superprime?\n";
+    cin >> x;
+   
+    for (int i = 2; i <= x; i++)
+    {
+        if (x % i == 0) {
+            k++;        
+        }       
+    }
+       if (k==0 || k > 2) {   
+        cout << "False \n";
+       }
+    else {
+        cout << "True \n";       
+    }    
+    return 0;
 }
+
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu

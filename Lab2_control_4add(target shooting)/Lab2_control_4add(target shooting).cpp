@@ -11,23 +11,19 @@ int main()
     int score = 0;
     double x, y;
     string level;
-
     
         for (int i = 0; i < shotsCount; i++) {
             cout << "Введите координаты " << i + 1 << "- го выстрела " << " (x y): \n";
             cin >> x >> y;
-
             if (x * x + y * y < 1) {
                 score += 10;
             }
             else if ((x * x + y * y >= 1) && (x * x + y * y <= 4)) {
                 score += 5;
             }
-
             if (score <50) {
                 shotsCount++;
             }
-
         }
         if (score >= shotsCount*10) {
                level = "снайпер";
@@ -39,8 +35,7 @@ int main()
                level = "новичок";
            }
         cout << "Вы набрали " << score << " очков за " << shotsCount << " выстрелов и ваш уровень : " << level << endl;
-        return 0;
-    
+        return 0;    
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

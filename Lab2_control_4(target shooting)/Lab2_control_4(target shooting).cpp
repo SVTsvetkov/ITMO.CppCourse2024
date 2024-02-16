@@ -14,8 +14,7 @@ int main()
 
     for(int i = 0; i < shotsCount; i++) {
         cout << "¬ведите координаты " << i+1 << "- го выстрела "  << " (x y): \n";
-        cin >> x >> y;
-        
+        cin >> x >> y;        
         if (x * x + y * y < 1) {
             score += 10;
         }
