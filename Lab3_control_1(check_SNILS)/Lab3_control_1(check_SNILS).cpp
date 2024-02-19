@@ -3,10 +3,9 @@
 
 #include <iostream>
 #include <string>
-
 using namespace std;
 
-void checkSNILS(string snils)
+bool checkSNILS(string snils)
 {
     int multipl;
     int checksumm = 0;
@@ -29,29 +28,16 @@ void checkSNILS(string snils)
         checksumm += multipl;
         k++;
     }
-
-    if (checksumm == control && checksumm < 100) {
-        cout << "True" << endl;
-    }
-    else if ((checksumm == 100 || checksumm == 101) && control == 0) {
-        cout << "True" << endl;
+    if ((checksumm == control && checksumm < 100) || ((checksumm == 100 || checksumm == 101) && control == 0)) {
+        return true;
     }
     else if (checksumm > 101) {
         int rest = checksumm % 101;
-        if (rest < 100 && rest == control) {
-            cout << "True" << endl;
+        if ((rest < 100 && rest == control) || (rest == 100 && checksumm == 00)) {
+            return true;
         }
-        else if (rest == 100 && checksumm == 00) {
-            cout << "True" << endl;
-        }
-        else {
-            cout << "False" << endl;
-        }
-    }
-    else {
-        cout << "False" << endl;
-    }
-    return;
+    }   
+    return false;
 }
 
 int main()
@@ -60,6 +46,7 @@ int main()
     cout << "Enter snils: " << endl;
     getline(cin, snils);
     checkSNILS(snils);
+    cout << boolalpha << checkSNILS(snils) << endl;
     return 0;
 }
 
